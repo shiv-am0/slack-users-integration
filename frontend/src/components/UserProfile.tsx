@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { sendToServer, getChannels } from '../utils/api';
+import { sendToServer, getChannels, sendToSlack } from '../utils/api';
+import ChannelsTable from './ChannelsTable';
 
 const UserProfile: React.FC = () => {
   const { user, logout } = useAuth0();
   const [requestToServer, setRequestToServer] = useState(false);
+  const [channels, setChannels] = useState<any[]>([]);  // Initialize as an empty array
 
   useEffect(() => {
     if (user) {
@@ -13,13 +15,30 @@ const UserProfile: React.FC = () => {
     }
   }, [user]);
 
+  const fetchChannels = async () => {
+    const data = await getChannels();
+    console.log(`Data: ${data}`);
+    setChannels(data || []);
+  };
+
+  const handleSendMessage = async (channelId: string) => {
+    // const response = await sendToSlack(channelId);
+    // alert(response);
+    alert(`Clicked on ${channelId}`);
+  };
+
   return (
     <div style={{ padding: 8 }}>
       <img src={user!.picture} alt={user!.name} />
       <h2>{user!.name}</h2>
       <p>{user!.email}</p>
       {requestToServer ? (
-        <button style={{ margin: 4 }} onClick={() => getChannels()}>Get Slack Channels</button>
+        <div>
+          <button style={{ margin: 4 }} onClick={fetchChannels}>Get Slack Channels</button>
+          {channels.length > 0 && (  // Check if channels is defined and has length
+            <ChannelsTable channels={channels} onSendMessage={handleSendMessage} />
+          )}
+        </div>
       ) : (
         <p>Send user info to server to connect to Slack</p>
       )}
