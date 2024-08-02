@@ -3,7 +3,6 @@ import User from '../models/User';
 
 export const callback = async (req: Request, res: Response, next: NextFunction) => {
     const { sub, name, email, picture } = req.body.user;
-    console.log("Callback");
 
     try {
         const user = await User.findOneAndUpdate(
