@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 export const sendToServer = async (user: any, setRequestToServer: any) => {
-    console.log(`My User: ${user.name}`);
-
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/callback`, { user });
         console.log(response.data.message);
@@ -24,10 +22,10 @@ export const getChannels = async () => {
     }
 };
 
-export const sendToSlack = async (channelId: string) => {
+export const sendToSlack = async (channelId: string, user: any) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/slack/send`, { channelId });
-      return(response.data.message);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/slack/send`, { channelId, user });
+        return(response.data.message);
     } catch (error) {
       console.error('Error sending request to Slack', error);
       return ('Failed to send message to Slack');

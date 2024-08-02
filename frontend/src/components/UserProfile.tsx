@@ -17,14 +17,14 @@ const UserProfile: React.FC = () => {
 
   const fetchChannels = async () => {
     const data = await getChannels();
-    console.log(`Data: ${data}`);
     setChannels(data || []);
   };
 
-  const handleSendMessage = async (channelId: string) => {
-    // const response = await sendToSlack(channelId);
-    // alert(response);
-    alert(`Clicked on ${channelId}`);
+  const handleSendMessage = async (channelId: string, user: any) => {
+    console.log(`User from handler: ${user}`);
+    
+    const response = await sendToSlack(channelId, user);
+    alert(response);
   };
 
   return (

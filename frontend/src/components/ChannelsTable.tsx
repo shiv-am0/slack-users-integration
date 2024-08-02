@@ -1,4 +1,4 @@
-// src/components/ChannelsTable.tsx
+import { useAuth0 } from "@auth0/auth0-react";
 import React from 'react';
 
 interface Channel {
@@ -8,10 +8,12 @@ interface Channel {
 
 interface ChannelsTableProps {
   channels: Channel[];
-  onSendMessage: (channelId: string) => void;
+  onSendMessage: (channelId: string, user: any) => void;
 }
 
 const ChannelsTable: React.FC<ChannelsTableProps> = ({ channels, onSendMessage }) => {
+  const { user } = useAuth0();
+
   return <div style={{marginTop: 8}}>
     <table>
       <thead>
@@ -27,7 +29,7 @@ const ChannelsTable: React.FC<ChannelsTableProps> = ({ channels, onSendMessage }
             <td>{channel.name}</td>
             <td>{channel.id}</td>
             <td>
-              <button onClick={() => onSendMessage(channel.id)}>Send Message</button>
+              <button onClick={() => onSendMessage(channel.id, user)}>Send Message</button>
             </td>
           </tr>
         ))}

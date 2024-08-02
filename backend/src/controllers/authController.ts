@@ -16,7 +16,7 @@ export const callback = async (req: Request, res: Response, next: NextFunction) 
             { upsert: true, new: true } // Upsert: create a new user if not found, return the updated user if found
         );
     
-        res.json({message: `User ${user.name} created successfully!`})
+        res.json({message: `User ${user.name} authenticated successfully!`})
     } catch (err) {
         // Handle any errors that occur
         res.json({message: "Unable to create user!"})
