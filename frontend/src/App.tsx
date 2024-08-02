@@ -27,7 +27,7 @@ function App() {
               <h2>{user!.name}</h2>
               <p>{user!.email}</p>
               { requestToServer ? (
-                  <button style={{margin: 4}}>Send to Slack</button>
+                  <button style={{margin: 4}} onClick={() => getChannels()}>Get Slack Channels</button>
               ) : <p>Send user info to server to connect to Slack</p>
               }
               <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>
@@ -47,6 +47,15 @@ async function sendToServer(user: any, setRequestToServer: any) {
     console.log(response.data.message);
     alert(response.data.message);
     setRequestToServer(true);
+  } catch (error) {
+      console.error('Error sending request', error);
+  }
+}
+
+async function getChannels() {
+  try {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/slack/channels`);
+    console.log(response.data);
   } catch (error) {
       console.error('Error sending request', error);
   }

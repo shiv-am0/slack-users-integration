@@ -3,11 +3,14 @@ import connectDB from "./config/db";
 import authRoutes from "./routes/authRoutes";
 import slackRoutes from "./routes/slackRoutes";
 import cors from "cors";
+import { config } from 'dotenv';
 
-require("dotenv").config();
+// Load environment variables from your .env file
+config();
 
 const app = express();
 
+// Connect to MongoDB
 connectDB();
 
 app.use(cors())
