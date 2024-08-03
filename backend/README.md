@@ -22,7 +22,7 @@ In the frontend directory, create a .env file and add the following environment 
 
 ```env
 PORT=5000
-MONGO_URI=your_mongo_connecter_uri
+MONGO_URI=your_mongo_connector_uri
 SLACK_TOKEN=your_slack_api_token
 JWT_SECRET=your_jwt_secret
 ```
