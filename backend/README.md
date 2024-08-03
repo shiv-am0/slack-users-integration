@@ -53,7 +53,7 @@ The project should now be running on http://localhost:5000.
 - **Description**: Endpoint that recieves users' auth details and stores in the database.
 - **Request**: The request is a JSON object containing users' details as below:-
 
-    ```json
+    ```code
     {
         email: "john.doe@gmail.com"
         email_verified: true
@@ -81,7 +81,7 @@ The project should now be running on http://localhost:5000.
 - **Request**: None
 - **Response**: The response contains an array of channels which looks something like the below object:-
 
-    ```json
+    ```code
     [
         {
         id: 'C02XXXXXXXX',
@@ -104,7 +104,7 @@ The project should now be running on http://localhost:5000.
 - **Description**: Endpoint that uses Slack web client to post the user details to a channel.
 - **Request**: The request is a JSON object containing channel ID and users' details as below:-
 
-    ```json
+    ```code
     {
         channelId: C01XXXXXXXX,
         user: {
@@ -123,7 +123,7 @@ The project should now be running on http://localhost:5000.
 
 - **Response**: The response object contains a message acknowledging the post message like below:-
 
-    ```json
+    ```code
     {
         messsage: "Details sent to Slack successfully!"
     }
