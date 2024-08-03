@@ -52,3 +52,7 @@ The project should now be running on http://localhost:3000.
 ### Auth0 Configuration
 
 Make sure you have configured your Auth0 application with the appropriate callback URLs, allowed web origins, and logout URLs.
+
+## Deployed Link
+
+The frontend is deployed and can be accessed [here](https://slack-users-integration-1.onrender.com/).

@@ -146,3 +146,7 @@ Make sure you have MongoDB configured on your local or have a database deployed 
 ### Slack API Configuration
 
 Make sure you have authenticated into your Slack Developer Portal and generated respective tokens. Create a Slack app and give `channels:read` and `chat:write` permissions to it. You also need to install the app on your Slack workspace.
+
+## Deployed Link
+
+The backend is deployed and the endpoints can be accessed at [https://slack-users-integration.onrender.com/](https://slack-users-integration.onrender.com/).
