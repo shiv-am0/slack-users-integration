@@ -11,7 +11,6 @@ export const getChannels = async (req: Request, res: Response) => {
     const result = await client.conversations.list();
 
     if (result.ok) {
-      console.log(result.channels);
       res.json(result.channels);
     } else {
       res.status(500).json({ error: "Failed to fetch channels" });

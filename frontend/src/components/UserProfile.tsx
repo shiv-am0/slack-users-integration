@@ -27,9 +27,7 @@ const UserProfile: React.FC = () => {
   };
 
   // Handler function to send messages to a specified Slack channel.
-  const handleSendMessage = async (channelId: string, user: any) => {
-    console.log(`User from handler: ${user}`);
-    
+  const handleSendMessage = async (channelId: string, user: any) => {    
     const response = await sendToSlack(channelId, user);
     alert(response);
   };
