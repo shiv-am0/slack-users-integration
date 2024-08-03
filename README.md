@@ -13,3 +13,7 @@ For detailed information on setting up and running the frontend, please refer to
 ### Backend
 
 For detailed information on setting up and running the backend, please refer to the [Backend README](./backend/README.md).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
