@@ -69,7 +69,7 @@ The project should now be running on http://localhost:5000.
 
 - **Response**: The response object contains a message of successful or failed authentication as described below:-
 
-    ```json
+    ```code
     {
         message: "User John Doe authenticated successfully!"
     }
@@ -96,8 +96,7 @@ The project should now be running on http://localhost:5000.
         is_general: true,
         ... } 
     ... ]
-  }
-  ```
+    ```
 
   ### POST /slack/send
 
