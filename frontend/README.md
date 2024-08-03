@@ -1,7 +1,5 @@
 # Slack Users Integration - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Brief Description
 
 This is the frontend part of the Slack Users Integration project. It is built with React and uses Auth0 for authentication. Users can log in with Google, and upon successful authentication, their details are sent to a Slack channel.
