@@ -1,5 +1,17 @@
 import { Request, Response, NextFunction } from "express";
 import { getClient } from "../config/slack";
+import { z } from "zod";
+
+// Zod type for message
+const messageType = z.object({
+  channelId: z.string(),
+  user: z.object({
+    sub: z.string(),
+    name: z.string(),
+    email: z.string(),
+    picture: z.string() 
+  })
+})
 
 // Function to get channels from Slack.
 export const getChannels = async (req: Request, res: Response) => {
@@ -27,10 +39,24 @@ export const sendToChannel = async (req: Request, res: Response) => {
   const client = getClient();
 
   // Get data from request object.
-  const { channelId, user } = req.body;
+  // const { channelId, user } = req.body;
+  const parsedMessage = messageType.safeParse(req.body);
+
+  // Send an error message if input received is not according to the required type.
+  if (!parsedMessage.success) {
+    return res.status(411).json({
+        message: "Incorrect inputs"
+    })
+  }
+
+  const channelId = parsedMessage.data?.channelId;
+  const sub = parsedMessage.data?.user.sub;
+  const name = parsedMessage.data?.user.name;
+  const email = parsedMessage.data?.user.email;
+  const picture = parsedMessage.data?.user.picture;
 
   // Message format to be sent.
-  const message = `${user.name} just onboarded!\nEmail: ${user.email}\nPicture: ${user.picture}`;
+  const message = `${name} just onboarded!\nEmail: ${email}\nPicture: ${picture}`;
 
   try {
     // Use the client to post message in channel.
