@@ -36,7 +36,15 @@ Run the following command to install the necessary dependencies:
 npm install
 ```
 
-### 4. Start the Project
+### 4. Compile the TypeScript files
+
+Run the following command to compile the TypeScript.
+
+```bash
+tsc -b
+```
+
+### 5. Start the Project
 
 Start the development server with the following command:
 
