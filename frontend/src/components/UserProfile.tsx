@@ -41,15 +41,43 @@ const UserProfile: React.FC = () => {
       <p>{user!.email}</p>
       {requestToServer ? (
         <div>
-          <button style={{ margin: 4 }} onClick={fetchChannels}>Get Slack Channels</button>
+          <button style={{
+            backgroundColor: '#4CAF50',
+            padding: "15px 30px", 
+            textAlign: 'center', 
+            display: 'inline-block',
+            fontSize: '18px', 
+            fontWeight: 'bold', 
+            margin: '10px 2px',
+            cursor: 'pointer',
+            borderRadius: '8px',}}
+            onClick={fetchChannels}
+          >
+            Get Slack Channels
+          </button>
           {channels.length > 0 && (  
             <ChannelsTable channels={channels} onSendMessage={handleSendMessage} />
           )}
         </div>
       ) : (
-        <p>Send user info to server to connect to Slack</p>
+        <p>Sending user info...</p>
       )}
-      <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      <button 
+        style={{
+          backgroundColor: '#4CAF50',
+          position: 'absolute',
+          top: '10px', 
+          right: '10px',
+          padding: "15px 30px", 
+          textAlign: 'center', 
+          display: 'inline-block',
+          fontSize: '18px', 
+          fontWeight: 'bold', 
+          margin: '10px 2px',
+          cursor: 'pointer',
+          borderRadius: '8px',}}
+        onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+      >
         Log Out
       </button>
     </div>
