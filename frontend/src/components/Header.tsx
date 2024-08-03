@@ -4,6 +4,7 @@ import UserProfile from './UserProfile';
 import LoginButton from './LoginButton';
 
 const Header: React.FC = () => {
+  // Boolean to handle authentication in a clean way. 
   const { isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {

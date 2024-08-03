@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Function to send the user details to the server after successful authentication.
 export const sendToServer = async (user: any, setRequestToServer: any) => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/callback`, { user });
@@ -11,6 +12,7 @@ export const sendToServer = async (user: any, setRequestToServer: any) => {
     }
 };
 
+// Function to get the list of all the Slack channels in the desired workspace.
 export const getChannels = async () => {
     try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/slack/channels`);
@@ -22,6 +24,7 @@ export const getChannels = async () => {
     }
 };
 
+// Function to send the "user" details to the slack channel as defined in "channelId".
 export const sendToSlack = async (channelId: string, user: any) => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/slack/send`, { channelId, user });

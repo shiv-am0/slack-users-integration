@@ -3,11 +3,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { sendToServer, getChannels, sendToSlack } from '../utils/api';
 import ChannelsTable from './ChannelsTable';
 
+// Renders this component on successful login.
 const UserProfile: React.FC = () => {
+  // Hook "useAuth0" is used to get details from the Auth0 API.
   const { user, logout } = useAuth0();
+  // Boolean to decide whether user details are sent to server or not.
   const [requestToServer, setRequestToServer] = useState(false);
+  // Variable to store Slack channels.
   const [channels, setChannels] = useState<any[]>([]);  // Initialize as an empty array
 
+  // Send user details to the server on first render only.
   useEffect(() => {
     if (user) {
       console.log(user);
@@ -15,11 +20,13 @@ const UserProfile: React.FC = () => {
     }
   }, [user]);
 
+  // Handler function to get channels from Slack.
   const fetchChannels = async () => {
     const data = await getChannels();
     setChannels(data || []);
   };
 
+  // Handler function to send messages to a specified Slack channel.
   const handleSendMessage = async (channelId: string, user: any) => {
     console.log(`User from handler: ${user}`);
     
@@ -35,7 +42,7 @@ const UserProfile: React.FC = () => {
       {requestToServer ? (
         <div>
           <button style={{ margin: 4 }} onClick={fetchChannels}>Get Slack Channels</button>
-          {channels.length > 0 && (  // Check if channels is defined and has length
+          {channels.length > 0 && (  
             <ChannelsTable channels={channels} onSendMessage={handleSendMessage} />
           )}
         </div>

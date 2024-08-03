@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from 'react';
 
+// Interface to induce a type to the Slack channels with the required properties.
 interface Channel {
   id: string;
   name: string;
@@ -11,6 +12,7 @@ interface ChannelsTableProps {
   onSendMessage: (channelId: string, user: any) => void;
 }
 
+// Component that stores the channel details in a table. Takes "ChannelsTableProps" as generic type.
 const ChannelsTable: React.FC<ChannelsTableProps> = ({ channels, onSendMessage }) => {
   const { user } = useAuth0();
 
