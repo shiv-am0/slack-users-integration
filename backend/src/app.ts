@@ -13,16 +13,17 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+// Initialize middlewares
 app.use(cors())
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
 
+// Define routes
 app.use("/auth", authRoutes);
 app.use("/slack", slackRoutes);
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("Welcome to slack-users-integration app!");
 });
 
 export default app;

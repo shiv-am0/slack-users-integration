@@ -1,7 +1,8 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import User from '../models/User';
 
-export const callback = async (req: Request, res: Response, next: NextFunction) => {
+// Function to save the user details to database after authentication.
+export const callback = async (req: Request, res: Response) => {
     const { sub, name, email, picture } = req.body.user;
 
     try {
@@ -20,6 +21,5 @@ export const callback = async (req: Request, res: Response, next: NextFunction) 
     } catch (err) {
         // Handle any errors that occur
         res.json({message: "Unable to create user!"})
-        next(err);
     }
 }

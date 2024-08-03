@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 
+// Interface to define the structure of the user object.
 interface IUser {
   sub: string;
   name: string;
@@ -7,6 +8,7 @@ interface IUser {
   picture: string;
 }
 
+// Mongoose schema for users.
 const userSchema = new Schema<IUser>({
   sub: { type: String, required: true, unique: true },
   name: { type: String, required: true },
