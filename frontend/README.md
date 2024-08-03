@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Slack Users Integration - Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Brief Description
 
-In the project directory, you can run:
+This is the frontend part of the Slack Users Integration project. It is built with React and uses Auth0 for authentication. Users can log in with Google, and upon successful authentication, their details are sent to a Slack channel.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow these steps to set up and run the project locally.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Clone the Repository
 
-### `npm test`
+First, clone the repository to your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/your-username/slack-users-integration.git
+cd slack-users-integration/frontend
+```
+### 2. Create a .env File
 
-### `npm run build`
+In the frontend directory, create a .env file and add the following environment variable:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```env
+REACT_APP_API_URL=your_backend_api_url
+REACT_APP_AUTH0_DOMAIN=your_auth0_domain
+REACT_APP_AUTH0_CLIENT_ID=your_auth0_client_id
+REACT_APP_AUTH0_CLIENT_SECRET=your_auth0_client_secret
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Replace your_auth0_domain, your_auth0_client_id, and your_backend_api_url with your actual Auth0 domain, client ID, and backend API URL.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Install Dependencies
 
-### `npm run eject`
+Run the following command to install the necessary dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Start the Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Start the development server with the following command:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+The project should now be running on http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Additional Details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Auth0 Configuration
+
+Make sure you have configured your Auth0 application with the appropriate callback URLs, allowed web origins, and logout URLs.
