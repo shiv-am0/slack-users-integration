@@ -22,8 +22,9 @@ In the frontend directory, create a .env file and add the following environment 
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>.mongodb.net/?retryWrites=true&w=majority&appName=<cluster>
-SLACK_TOKEN=xoxb-XXXXXXXXX-XXXXXXXXX-XXXXXXXXX
+MONGO_URI=your_mongo_connecter_uri
+SLACK_TOKEN=your_slack_api_token
+JWT_SECRET=your_jwt_secret
 ```
 
 Replace the environment variables with the desired values.
