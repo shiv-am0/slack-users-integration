@@ -6,7 +6,7 @@ This project integrates Auth0 authentication with Slack using a React frontend a
 
 Below is a high-level flow chart for the use-case.
 
-![High-level use-case diagram](https://www.canva.com/design/DAGM3s23Pkg/vEScaUGI7CidfDj5CLMPCQ/view?utm_content=DAGM3s23Pkg&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel)
+![High-level use-case diagram](https://drive.google.com/file/d/1krqLo6OnyBHGHWAOKsAGWHrvhLuYnTbJ/view?usp=sharing)
 
 ## Documentation
 
