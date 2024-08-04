@@ -11,6 +11,7 @@ if (!JWT_SECRET) {
     throw new Error('JWT_SECRET is not defined');
 }
 
+// Middleware to verify JWT token passed with the Request object.
 export const authenticateJwt = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {

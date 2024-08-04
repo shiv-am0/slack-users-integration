@@ -7,6 +7,7 @@ interface Channel {
   name: string;
 }
 
+// Interface to define the props
 interface ChannelsTableProps {
   channels: Channel[];
   onSendMessage: (channelId: string, user: any) => void;
